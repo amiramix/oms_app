@@ -19,6 +19,14 @@ defmodule OmsApiWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/", OmsApiWeb do
+    pipe_through :api
+
+    resources "/instances", InstanceController, only: [] do
+      resources "/metrics", MetricController, only: [:index]
+    end
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", OmsApiWeb do
   #   pipe_through :api
