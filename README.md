@@ -12,6 +12,7 @@ Please refer to the apropriate documentation for all available commands.
 cd oms_api
 mix deps.get
 mix ecto.create
+(cd assets && npm install)
 
 mix phx.server
 ```

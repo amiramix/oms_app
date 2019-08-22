@@ -23,7 +23,7 @@ const useDataApi = (initialUrl, initialData) => {
       setIsLoading(true);
 
       try {
-        const result = await fetch(url)
+        const result = await fetch(url);
         const json = await result.json();
         if (json.error) {
           setIsError(true);
