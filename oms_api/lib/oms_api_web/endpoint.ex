@@ -42,5 +42,7 @@ defmodule OmsApiWeb.Endpoint do
     key: "_oms_api_key",
     signing_salt: "SA8QZ009"
 
+  plug Corsica, origins: "http://localhost:3000"
+
   plug OmsApiWeb.Router
 end

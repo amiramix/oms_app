@@ -9,15 +9,15 @@ defmodule OmsApiWeb.MetricControllerTest do
     test "get 24hrs latency metrics", %{conn: conn} do
       conn = get(conn, Routes.instance_metric_path(conn, :index, 1, resolution: "24hrs"))
       data = json_response(conn, 200)["data"]
-      assert is_map(data)
-      assert Map.has_key?(data, "latency.ms.max")
+      assert is_list(data)
+      assert !Enum.empty?(data)
     end
 
     test "get 72hrs latency metrics", %{conn: conn} do
       conn = get(conn, Routes.instance_metric_path(conn, :index, 1, resolution: "72hrs"))
       data = json_response(conn, 200)["data"]
-      assert is_map(data)
-      assert Map.has_key?(data, "latency.ms.max")
+      assert is_list(data)
+      assert !Enum.empty?(data)
     end
 
     test "return error if invalid parameter", %{conn: conn} do
