@@ -47,7 +47,6 @@ function App() {
   const [{ data, isLoading, isError }, doFetch] = useDataApi(getUrl(24), []);
 
   const Button = ({resolution, type}) => {
-    console.log(resolution, type);
     return (
     <button
       onClick={
